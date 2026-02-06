@@ -11,6 +11,7 @@ class MlxAudio < Formula
   depends_on "portaudio"  # Required by sounddevice
 
   def install
+    # Dependencies will be installed automatically from PyPI
     virtualenv_install_with_resources
   end
 

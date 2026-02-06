@@ -21,8 +21,8 @@ brew install mlx-audio
 After installation, you can use the mlx-audio command-line tools:
 
 ```bash
-# Text-to-Speech generation
-mlx_audio.tts.generate --model mlx-community/Kokoro-82M-bf16 --text 'Hello, world!' --lang_code a
+# Text-to-Speech generation (English)
+mlx_audio.tts.generate --model mlx-community/Kokoro-82M-bf16 --text 'Hello, world!' --lang_code en
 
 # Speech-to-Text transcription
 mlx_audio.stt.generate --help
