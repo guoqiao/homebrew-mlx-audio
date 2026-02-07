@@ -8,7 +8,7 @@ Tap and install:
 
 ```bash
 brew tap guoqiao/mlx-audio
-brew install mlx-audio
+brew install --HEAD mlx-audio
 ```
 
 ## Usage
