@@ -20,7 +20,7 @@ class MlxAudio < Formula
     system libexec/"bin/python", "-m", "ensurepip"
     # webrtcvad needs setuptools/pkg_resources at runtime
     system libexec/"bin/python", "-m", "pip", "install", "setuptools"
-    system libexec/"bin/python", "-m", "pip", "install", "-e", ".[server]"
+    system libexec/"bin/python", "-m", "pip", "install", ".[server]"
 
     # Force reinstall webrtcvad to ensure it links correctly after setuptools
     system libexec/"bin/python", "-m", "pip", "install", "--force-reinstall", "webrtcvad"
@@ -51,6 +51,7 @@ class MlxAudio < Formula
     working_dir var/"mlx-audio-server"
     log_path var/"log/mlx-audio-server/server.log"
     error_log_path var/"log/mlx-audio-server/server.error.log"
+    environment_variables PATH: std_service_path_env
   end
 
   test do
