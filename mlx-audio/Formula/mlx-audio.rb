@@ -12,6 +12,10 @@ class MlxAudio < Formula
   depends_on "portaudio"
   depends_on "python@3.12"
 
+  # Prevent Homebrew from rewriting dylib paths in Python packages
+  # (pydantic_core paths are too long for Mach-O headers)
+  skip_clean "libexec"
+
   def install
     virtualenv_create(libexec, "python3.12")
     system libexec/"bin/python", "-m", "ensurepip"
@@ -42,16 +46,12 @@ class MlxAudio < Formula
   end
 
   service do
-    name "me.guoqiao.mlx-audio"
-    run [
-      "/bin/bash", "-c",
-      "#{opt_bin}/mlx-audio-server --host 0.0.0.0 --port ${MLX_AUDIO_SERVER_PORT:-8899} --log-dir #{var}/log/mlx-audio-server"
-    ]
+    name macos: "me.guoqiao.mlx-audio"
+    run [opt_bin/"mlx-audio-server", "--host", "0.0.0.0", "--port", "8899", "--log-dir", var/"log/mlx-audio-server"]
     keep_alive true
     working_dir var/"mlx-audio-server"
     log_path var/"log/mlx-audio-server/server.log"
     error_log_path var/"log/mlx-audio-server/server.error.log"
-    environment_variables MLX_AUDIO_SERVER_PORT: "8899", PATH: std_service_path_env
   end
 
   test do
