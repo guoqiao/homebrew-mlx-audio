@@ -42,9 +42,10 @@ setup:
 install: setup
 	# Try to install; if it fails (linkage warnings), check if it was actually installed
 	brew install --HEAD $(TAP_NAME)/$(FORMULA) || brew list $(FORMULA)
+	make service
 
 uninstall:
-	brew uninstall $(FORMULA) || true
+	brew $@ $(FORMULA) || true
 
 reinstall: uninstall install
 
