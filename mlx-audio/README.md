@@ -7,7 +7,7 @@ Homebrew Formula & Tap for [mlx-audio](https://github.com/Blaizzy/mlx-audio) - a
 Tap and install:
 
 ```bash
-brew tap guoqiao/mlx-audio
+brew tap guoqiao/tap
 brew install --HEAD mlx-audio
 ```
 
