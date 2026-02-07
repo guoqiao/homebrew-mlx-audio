@@ -17,7 +17,7 @@ class MlxAudio < Formula
     system libexec/"bin/python", "-m", "ensurepip"
     # webrtcvad needs setuptools/pkg_resources at runtime
     system libexec/"bin/python", "-m", "pip", "install", "setuptools"
-    system libexec/"bin/python", "-m", "pip", "install", "-v", ".[server]"
+    system libexec/"bin/python", "-m", "pip", "install", "-e", ".[server]"
 
     # Force reinstall webrtcvad to ensure it links correctly after setuptools
     system libexec/"bin/python", "-m", "pip", "install", "--force-reinstall", "webrtcvad"
