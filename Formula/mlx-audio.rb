@@ -39,6 +39,10 @@ class MlxAudio < Formula
     (var/"log/mlx-audio-server").mkpath
   end
 
+  def plist_name
+    "me.guoqiao.mlx-audio"
+  end
+
   service do
     run [
       "/bin/bash", "-c",
