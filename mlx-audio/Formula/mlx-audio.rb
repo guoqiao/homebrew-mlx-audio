@@ -9,7 +9,6 @@ class MlxAudio < Formula
   head "https://github.com/Blaizzy/mlx-audio.git", branch: "main"
 
   depends_on "ffmpeg"
-  depends_on "portaudio"
   depends_on "python@3.12"
 
   # Prevent Homebrew from rewriting dylib paths in Python packages
